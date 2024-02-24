@@ -8,12 +8,12 @@
 
 // объект vars содержит в себе переменные, которые мы создаем (почитай про объекты)
 const vars = {
-    statusActivate: false,                                         // статус (активна/закрыта)
-    modalElement: document.querySelector('.modal'),       // модалка
-    buttonActivate: document.querySelector('#button123'), // кнопка активации
-    buttonClose: document.querySelector('.modal__close')  // кнопка закрытия
+    statusActivate: false,                                               // статус (активна/закрыта)
+    modalElement: document.querySelector('.modal'),             // модалка
+    modalMainElement: document.querySelector('.modal__main'),   // модалка карточка
+    buttonActivate: document.querySelector('#button123'),       // кнопка активации
+    buttonClose: document.querySelector('.modal__close')        // кнопка закрытия
 }
-
 
 // при загрузке страницы, проверяем статус открытия модалки
 window.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +39,19 @@ vars.buttonActivate.onclick = eventToClick
 // По клику на кнопку закрытия, активируем фукцию переключения статуса активации
 vars.buttonClose.onclick = eventToClick
 
+// По клику на модалку, активируем фукцию
+vars.modalElement.onclick = function (event) {
+    // по клику на элемент, проверяем его класс
+    const targetClass = event.target.className
+
+    // Смотрим в консоли, куда мы кликнули
+    console.log(targetClass)
+
+    // если нужный нам класс = modal, активируем фукцию переключения статуса активации
+    return targetClass === 'modal' ? eventToClick() : ''
+}
+
+// Фукция переключения статуса активации
 function eventToClick() {
     // true = false или наоборот
     vars.statusActivate = !vars.statusActivate
@@ -46,3 +59,4 @@ function eventToClick() {
     // Проверка положения true или false
     checkModalStatus()
 }
+
