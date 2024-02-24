@@ -73,6 +73,15 @@ button {
     font-weight: 500; /* font-weight - толщина шрифта 500 (диапазон от 100 до 900), где 100 - самый тонкий, 900 самый толстый (см. значение в выбранном шрифте) */
 }
 
+/* у margin/padding есть приписки
+    -top - сверху
+    -left - слева
+    -right - справа
+    -bottom - снизу
+    -block - по оси y
+    -inline - по оси x
+ */
+
 .card-subtitle {
     margin-top: 2px;
     font-size: 12px;
@@ -89,15 +98,19 @@ button {
     color: var(--grey);
 }
 
+
+/* здесь обращаемся ко всем кнопкам, внутри элемента с классом card-actions */
 .card-actions button {
-    font-size: 12px !important;
+    font-size: 12px !important; /* !important - супер важное свойство (если есть какое то другое свойтво, оно его перекрывает) */
     color: var(--blue);
 }
 
+/* здесь мы обращаемся ко всем кнопкам идущим подряд, внутри элемента с классои card-actions, свойства применяются со второго элемента */
 .card-actions button + button {
     margin-left: 10px;
 }
 
+/* медиа запрос, отработка которого срабатывает при ширине окна >= (больше или равно) 650px */
 @media (max-width: 650px) {
     .card {
         width: 90%;
