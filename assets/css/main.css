@@ -118,14 +118,13 @@ button {
 }
 
 .modal {
+    display: none;
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    cursor: pointer;
     padding: 30px;
+    cursor: pointer;
     overflow-y: auto;
-    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__main {
