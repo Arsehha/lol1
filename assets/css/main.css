@@ -1,12 +1,23 @@
+/* Импорт шрифтов, css файлов и ссылкок css */
 @import "roboto.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-<script src="scripts/by.js" defer></script>
+
+/* задаём глобальные переменные
+    --навзание: значение;
+*/
+
 :root {
     --grey: #a4a4a4;
     --blue: #2a72c5;
     --radius: 13px;
 }
 
+
+/*
+    * - обращение ко всем html элементам
+    ::before - псевдоэлемент, перед элементом
+    ::after - псевдоэлемент, после элемента
+*/
 *,
 *::before,
 *::after {
@@ -17,17 +28,34 @@
 
 button {
     cursor: pointer;
-    border: none;
-    outline: none;
-    background: transparent;
+    border: none; /* внутренняя граница */
+    outline: none; /* внешняя граница */
+    background: transparent; /* transparent - прозрачный */
 }
 
+/* блок, на весь экран, выравнивающий элементы внутри по центру */
 .wrapper {
     display: flex;
     height: 100vh;
-    align-items: center;
-    justify-content: center;
+    /* vw - растягивание по всей длине относительно окна, применяется для width */
+    /* vh - растягивание по всей высоте относительно окна, применяется для height */
+    align-items: center; /* выравнивание по оси y */
+    justify-content: center;  /* выравнивание по оси x */
 }
+
+/* margin - внешний отступ */
+/* padding - внутренний отступ */
+
+/* margin/padding: принимают значения в 4 видах, рассмотрим на примере padding
+
+    padding: 10px; - покругу внутри элемента будут отступы по 10px;
+
+    padding: 10px 5px; - первая цифра - отступы сверху и снизу - 10px; вторая цифра - отступы слева и справа по 5px;
+
+    padding: 5px 10px 15px; - первая цифра - отступ сверху - 5px; вторая отступ снизу 10px; третья - отступ слева и спава 10px;
+
+    padding: 5px 10px 15px 20px - значение по часовой стрелке, начиная сверху 5px, справа 10px, внизу 15px; слева 20px;
+ */
 
 .card {
     width: 100%;
@@ -35,12 +63,14 @@ button {
     min-height: 100px;
     padding: 7px 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.47);
-    border-radius: var(--radius);
+    border-radius: var(--radius);  /* закругление углов */
+    /* var(--переменная) - обращение к переменной из :root */
 }
 
 .card-head h4 {
-    font-size: 14px;
-    font-weight: 500;
+    /* работа с текстом */
+    font-size: 14px; /* font-size - размер шрифта 14px */
+    font-weight: 500; /* font-weight - толщина шрифта 500 (диапазон от 100 до 900), где 100 - самый тонкий, 900 самый толстый (см. значение в выбранном шрифте) */
 }
 
 .card-subtitle {
@@ -77,13 +107,14 @@ button {
 .modal {
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     cursor: pointer;
     padding: 30px;
-    overflow-y:auto ;
+    overflow-y: auto;
     display: none;
 }
+
 .modal__main {
     position: relative;
     max-width: 600px;
@@ -91,15 +122,15 @@ button {
     margin: auto;
     color: #000;
     border-radius: 3px;
-    padding: 50 px;
+    padding: 50px;
     cursor: default;
 }
 
-.modal__title{
-margin-bottom: 30px;
+.modal__title {
+    margin-bottom: 30px;
 }
 
-.modal__close{
+.modal__close {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -113,10 +144,10 @@ margin-bottom: 30px;
     padding: 0;
     text-align: center;
     display: block;
-    width: 30 px;
-    height: 30 px;
+    width: 30px;
+    height: 30px;
 }
 
-.moda__close:focus-visible{
+.modal__close:focus-visible {
     outline-color: green;
 }
